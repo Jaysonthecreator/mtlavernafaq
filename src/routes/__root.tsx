@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
+      { title: "Mt. Laverna FAQ" },
+      { name: "description", content: "Mount Laverna's most frequently asked questions" },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { property: "og:title", content: "Mt. Laverna FAQ" },
+      { property: "og:description", content: "Mount Laverna's most frequently asked questions" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Mt. Laverna FAQ" },
+      { name: "twitter:description", content: "Mount Laverna's most frequently asked questions" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/8sPXDUdvXPga0yEyGOxcuQ6nKo42/social-images/social-1778507162239-Mt-Laverna-Academy-Primary-School-Nairobi-Kenya-SchoolFinder-TortoisePathcom.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/8sPXDUdvXPga0yEyGOxcuQ6nKo42/social-images/social-1778507162239-Mt-Laverna-Academy-Primary-School-Nairobi-Kenya-SchoolFinder-TortoisePathcom.webp" },
     ],
     links: [
       {
