@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Chatbot } from "@/components/Chatbot";
-import { GraduationCap, BookOpen, Users, Bus, Trophy, Mail, Phone, MapPin } from "lucide-react";
+import { BookOpen, Users, Bus, Trophy, Mail, Phone, MapPin } from "lucide-react";
+import mlsLogo from "@/assets/mls-logo.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -25,17 +26,12 @@ function Index() {
       <header className="sticky top-0 z-30 backdrop-blur-md bg-background/80 border-b border-border">
         <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
           <a href="#" className="flex items-center gap-3">
-            <div
-              className="grid place-items-center w-10 h-10 rounded-xl text-primary-foreground"
-              style={{ background: "var(--gradient-hero)" }}
-            >
-              <GraduationCap className="w-5 h-5" />
-            </div>
+            <img src={mlsLogo} alt="Mount Laverna School crest" className="w-12 h-12 object-contain" />
             <div className="leading-tight">
               <p className="font-display text-lg" style={{ fontFamily: "var(--font-display)" }}>
                 Mount Laverna
               </p>
-              <p className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground">School</p>
+              <p className="text-[11px] tracking-[0.2em] uppercase text-muted-foreground">Diligence Rewards</p>
             </div>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm">
@@ -67,9 +63,16 @@ function Index() {
         />
         <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28 grid lg:grid-cols-[1.1fr_1fr] gap-12 items-center">
           <div className="text-primary-foreground">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs uppercase tracking-widest">
-              <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" /> Est. 1985 · K–12
-            </span>
+            <div className="flex items-center gap-4">
+              <img
+                src={mlsLogo}
+                alt="Mount Laverna School crest"
+                className="w-20 h-20 object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
+              />
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs uppercase tracking-widest">
+                <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" /> Est. 1985 · K–12
+              </span>
+            </div>
             <h1
               className="mt-6 text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.05]"
               style={{ fontFamily: "var(--font-display)" }}
