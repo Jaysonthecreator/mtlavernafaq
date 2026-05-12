@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PrimaryRouteImport } from './routes/primary'
+import { Route as JuniorSecondaryRouteImport } from './routes/junior-secondary'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ClubsRouteImport } from './routes/clubs'
@@ -21,6 +22,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const PrimaryRoute = PrimaryRouteImport.update({
   id: '/primary',
   path: '/primary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JuniorSecondaryRoute = JuniorSecondaryRouteImport.update({
+  id: '/junior-secondary',
+  path: '/junior-secondary',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FounderRoute = FounderRouteImport.update({
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/clubs': typeof ClubsRoute
   '/contact': typeof ContactRoute
   '/founder': typeof FounderRoute
+  '/junior-secondary': typeof JuniorSecondaryRoute
   '/primary': typeof PrimaryRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/clubs': typeof ClubsRoute
   '/contact': typeof ContactRoute
   '/founder': typeof FounderRoute
+  '/junior-secondary': typeof JuniorSecondaryRoute
   '/primary': typeof PrimaryRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/clubs': typeof ClubsRoute
   '/contact': typeof ContactRoute
   '/founder': typeof FounderRoute
+  '/junior-secondary': typeof JuniorSecondaryRoute
   '/primary': typeof PrimaryRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/clubs'
     | '/contact'
     | '/founder'
+    | '/junior-secondary'
     | '/primary'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/clubs'
     | '/contact'
     | '/founder'
+    | '/junior-secondary'
     | '/primary'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/clubs'
     | '/contact'
     | '/founder'
+    | '/junior-secondary'
     | '/primary'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   ClubsRoute: typeof ClubsRoute
   ContactRoute: typeof ContactRoute
   FounderRoute: typeof FounderRoute
+  JuniorSecondaryRoute: typeof JuniorSecondaryRoute
   PrimaryRoute: typeof PrimaryRoute
 }
 
@@ -141,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/primary'
       fullPath: '/primary'
       preLoaderRoute: typeof PrimaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/junior-secondary': {
+      id: '/junior-secondary'
+      path: '/junior-secondary'
+      fullPath: '/junior-secondary'
+      preLoaderRoute: typeof JuniorSecondaryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/founder': {
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   ClubsRoute: ClubsRoute,
   ContactRoute: ContactRoute,
   FounderRoute: FounderRoute,
+  JuniorSecondaryRoute: JuniorSecondaryRoute,
   PrimaryRoute: PrimaryRoute,
 }
 export const routeTree = rootRouteImport
