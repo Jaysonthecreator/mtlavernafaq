@@ -9,6 +9,9 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PrimaryRouteImport } from './routes/primary'
+import { Route as JuniorSecondaryRouteImport } from './routes/junior-secondary'
+import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ClubsRouteImport } from './routes/clubs'
 import { Route as AdmissionsRouteImport } from './routes/admissions'
@@ -16,6 +19,21 @@ import { Route as AcademicsRouteImport } from './routes/academics'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PrimaryRoute = PrimaryRouteImport.update({
+  id: '/primary',
+  path: '/primary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JuniorSecondaryRoute = JuniorSecondaryRouteImport.update({
+  id: '/junior-secondary',
+  path: '/junior-secondary',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FounderRoute = FounderRouteImport.update({
+  id: '/founder',
+  path: '/founder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -54,6 +72,9 @@ export interface FileRoutesByFullPath {
   '/admissions': typeof AdmissionsRoute
   '/clubs': typeof ClubsRoute
   '/contact': typeof ContactRoute
+  '/founder': typeof FounderRoute
+  '/junior-secondary': typeof JuniorSecondaryRoute
+  '/primary': typeof PrimaryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +83,9 @@ export interface FileRoutesByTo {
   '/admissions': typeof AdmissionsRoute
   '/clubs': typeof ClubsRoute
   '/contact': typeof ContactRoute
+  '/founder': typeof FounderRoute
+  '/junior-secondary': typeof JuniorSecondaryRoute
+  '/primary': typeof PrimaryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +95,9 @@ export interface FileRoutesById {
   '/admissions': typeof AdmissionsRoute
   '/clubs': typeof ClubsRoute
   '/contact': typeof ContactRoute
+  '/founder': typeof FounderRoute
+  '/junior-secondary': typeof JuniorSecondaryRoute
+  '/primary': typeof PrimaryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,8 +108,20 @@ export interface FileRouteTypes {
     | '/admissions'
     | '/clubs'
     | '/contact'
+    | '/founder'
+    | '/junior-secondary'
+    | '/primary'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/academics' | '/admissions' | '/clubs' | '/contact'
+  to:
+    | '/'
+    | '/about'
+    | '/academics'
+    | '/admissions'
+    | '/clubs'
+    | '/contact'
+    | '/founder'
+    | '/junior-secondary'
+    | '/primary'
   id:
     | '__root__'
     | '/'
@@ -91,6 +130,9 @@ export interface FileRouteTypes {
     | '/admissions'
     | '/clubs'
     | '/contact'
+    | '/founder'
+    | '/junior-secondary'
+    | '/primary'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -100,10 +142,34 @@ export interface RootRouteChildren {
   AdmissionsRoute: typeof AdmissionsRoute
   ClubsRoute: typeof ClubsRoute
   ContactRoute: typeof ContactRoute
+  FounderRoute: typeof FounderRoute
+  JuniorSecondaryRoute: typeof JuniorSecondaryRoute
+  PrimaryRoute: typeof PrimaryRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/primary': {
+      id: '/primary'
+      path: '/primary'
+      fullPath: '/primary'
+      preLoaderRoute: typeof PrimaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/junior-secondary': {
+      id: '/junior-secondary'
+      path: '/junior-secondary'
+      fullPath: '/junior-secondary'
+      preLoaderRoute: typeof JuniorSecondaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/founder': {
+      id: '/founder'
+      path: '/founder'
+      fullPath: '/founder'
+      preLoaderRoute: typeof FounderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -156,6 +222,9 @@ const rootRouteChildren: RootRouteChildren = {
   AdmissionsRoute: AdmissionsRoute,
   ClubsRoute: ClubsRoute,
   ContactRoute: ContactRoute,
+  FounderRoute: FounderRoute,
+  JuniorSecondaryRoute: JuniorSecondaryRoute,
+  PrimaryRoute: PrimaryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
