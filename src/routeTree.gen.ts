@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ClubsRouteImport } from './routes/clubs'
 import { Route as AdmissionsRouteImport } from './routes/admissions'
@@ -16,6 +17,11 @@ import { Route as AcademicsRouteImport } from './routes/academics'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const FounderRoute = FounderRouteImport.update({
+  id: '/founder',
+  path: '/founder',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/admissions': typeof AdmissionsRoute
   '/clubs': typeof ClubsRoute
   '/contact': typeof ContactRoute
+  '/founder': typeof FounderRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/admissions': typeof AdmissionsRoute
   '/clubs': typeof ClubsRoute
   '/contact': typeof ContactRoute
+  '/founder': typeof FounderRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/admissions': typeof AdmissionsRoute
   '/clubs': typeof ClubsRoute
   '/contact': typeof ContactRoute
+  '/founder': typeof FounderRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,8 +90,16 @@ export interface FileRouteTypes {
     | '/admissions'
     | '/clubs'
     | '/contact'
+    | '/founder'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/academics' | '/admissions' | '/clubs' | '/contact'
+  to:
+    | '/'
+    | '/about'
+    | '/academics'
+    | '/admissions'
+    | '/clubs'
+    | '/contact'
+    | '/founder'
   id:
     | '__root__'
     | '/'
@@ -91,6 +108,7 @@ export interface FileRouteTypes {
     | '/admissions'
     | '/clubs'
     | '/contact'
+    | '/founder'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -100,10 +118,18 @@ export interface RootRouteChildren {
   AdmissionsRoute: typeof AdmissionsRoute
   ClubsRoute: typeof ClubsRoute
   ContactRoute: typeof ContactRoute
+  FounderRoute: typeof FounderRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/founder': {
+      id: '/founder'
+      path: '/founder'
+      fullPath: '/founder'
+      preLoaderRoute: typeof FounderRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
@@ -156,7 +182,18 @@ const rootRouteChildren: RootRouteChildren = {
   AdmissionsRoute: AdmissionsRoute,
   ClubsRoute: ClubsRoute,
   ContactRoute: ContactRoute,
+  FounderRoute: FounderRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
