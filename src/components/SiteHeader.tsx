@@ -4,7 +4,9 @@ import mlsLogo from "@/assets/mls-logo.png";
 const NAV = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/academics", label: "Academics" },
+  { to: "/founder", label: "Founder" },
+  { to: "/primary", label: "Primary" },
+  { to: "/junior-secondary", label: "Junior Secondary" },
   { to: "/admissions", label: "Admissions" },
   { to: "/clubs", label: "Clubs" },
   { to: "/contact", label: "Contact" },
