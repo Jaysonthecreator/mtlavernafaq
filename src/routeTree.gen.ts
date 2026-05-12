@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as PrimaryRouteImport } from './routes/primary'
 import { Route as FounderRouteImport } from './routes/founder'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ClubsRouteImport } from './routes/clubs'
@@ -17,6 +18,11 @@ import { Route as AcademicsRouteImport } from './routes/academics'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
+const PrimaryRoute = PrimaryRouteImport.update({
+  id: '/primary',
+  path: '/primary',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const FounderRoute = FounderRouteImport.update({
   id: '/founder',
   path: '/founder',
@@ -61,6 +67,7 @@ export interface FileRoutesByFullPath {
   '/clubs': typeof ClubsRoute
   '/contact': typeof ContactRoute
   '/founder': typeof FounderRoute
+  '/primary': typeof PrimaryRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -70,6 +77,7 @@ export interface FileRoutesByTo {
   '/clubs': typeof ClubsRoute
   '/contact': typeof ContactRoute
   '/founder': typeof FounderRoute
+  '/primary': typeof PrimaryRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -80,6 +88,7 @@ export interface FileRoutesById {
   '/clubs': typeof ClubsRoute
   '/contact': typeof ContactRoute
   '/founder': typeof FounderRoute
+  '/primary': typeof PrimaryRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +100,7 @@ export interface FileRouteTypes {
     | '/clubs'
     | '/contact'
     | '/founder'
+    | '/primary'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -100,6 +110,7 @@ export interface FileRouteTypes {
     | '/clubs'
     | '/contact'
     | '/founder'
+    | '/primary'
   id:
     | '__root__'
     | '/'
@@ -109,6 +120,7 @@ export interface FileRouteTypes {
     | '/clubs'
     | '/contact'
     | '/founder'
+    | '/primary'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -119,10 +131,18 @@ export interface RootRouteChildren {
   ClubsRoute: typeof ClubsRoute
   ContactRoute: typeof ContactRoute
   FounderRoute: typeof FounderRoute
+  PrimaryRoute: typeof PrimaryRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/primary': {
+      id: '/primary'
+      path: '/primary'
+      fullPath: '/primary'
+      preLoaderRoute: typeof PrimaryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/founder': {
       id: '/founder'
       path: '/founder'
@@ -183,6 +203,7 @@ const rootRouteChildren: RootRouteChildren = {
   ClubsRoute: ClubsRoute,
   ContactRoute: ContactRoute,
   FounderRoute: FounderRoute,
+  PrimaryRoute: PrimaryRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
