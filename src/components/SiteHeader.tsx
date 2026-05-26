@@ -77,9 +77,9 @@ export function SiteFooter() {
         </div>
         <div>
           <p className="text-xs uppercase tracking-widest text-muted-foreground">Contact</p>
-          <p className="mt-3">14 Hillview Avenue, Greenfield</p>
-          <p>+91 80 4567 8900</p>
-          <p>info@mountlaverna.edu</p>
+          <p className="mt-3">P.O. Box 6514-00300 Nairobi</p>
+          <p>0725500584</p>
+          <p>mtlaverna@yahoo.com</p>
         </div>
       </div>
       <div className="border-t border-border">

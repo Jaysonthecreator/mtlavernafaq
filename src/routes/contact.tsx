@@ -27,9 +27,9 @@ function ContactPage() {
 
       <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
         {[
-          { icon: MapPin, t: "Visit", b: "14 Hillview Avenue, Greenfield" },
-          { icon: Phone, t: "Call", b: "+91 80 4567 8900" },
-          { icon: Mail, t: "Write", b: "info@mountlaverna.edu" },
+          { icon: MapPin, t: "Visit", b: "P.O. Box 6514-00300 Nairobi" },
+          { icon: Phone, t: "Call", b: "0725500584" },
+          { icon: Mail, t: "Write", b: "mtlaverna@yahoo.com" },
           { icon: Clock, t: "Office hours", b: "Mon–Fri · 8 AM – 5 PM" },
         ].map((c) => (
           <div key={c.t} className="p-6 rounded-2xl bg-card border border-border">
