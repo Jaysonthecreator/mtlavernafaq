@@ -15,18 +15,18 @@ export const Route = createFileRoute("/admissions")({
 
 const STEPS = [
   ["1. Enquire", "Submit the online enquiry form or visit the front office for a campus tour."],
-  ["2. Apply", "Complete the application form along with previous report cards and a ₹1,500 application fee."],
+  ["2. Apply", "Complete the application form along with previous report cards and a KES 2,000 application fee."],
   ["3. Assessment", "Age-appropriate assessment and a parent–child interaction with the Head of School."],
   ["4. Offer", "Successful applicants receive an offer letter within two weeks."],
   ["5. Enrol", "Confirm your seat by paying the term fee within 14 days of the offer."],
 ];
 
 const FEES = [
-  ["Kindergarten", "₹85,000 / year"],
-  ["Primary (1–5)", "₹1,10,000 / year"],
-  ["Lower Secondary (6–8)", "₹1,35,000 / year"],
-  ["IGCSE (9–10)", "₹1,65,000 / year"],
-  ["AS / A Levels (11–12)", "₹1,95,000 / year"],
+  ["Kindergarten (PP1–PP2)", "KES 80,000 / year"],
+  ["Lower Primary (1–3)", "KES 100,000 / year"],
+  ["Upper Primary (4–6)", "KES 120,000 / year"],
+  ["Junior School (7–9)", "KES 140,000 / year"],
+  ["Senior School (10–12)", "KES 160,000 / year"],
 ];
 
 function AdmissionsPage() {
