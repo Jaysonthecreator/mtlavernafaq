@@ -10,12 +10,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Mount Laverna School is a Cambridge-aligned co-educational K-12 school. Explore academics, admissions, clubs, and chat with our 24/7 AI assistant.",
+          "Mount Laverna School is a CBC co-educational K-12 school. Explore academics, admissions, clubs, and chat with our 24/7 AI assistant.",
       },
       { property: "og:title", content: "Mount Laverna School" },
       {
         property: "og:description",
-        content: "Cambridge-aligned K-12 education. Ask our AI assistant anything, anytime.",
+        content: "CBC-based K-12 education. Ask our AI assistant anything, anytime.",
       },
     ],
   }),
@@ -53,7 +53,7 @@ function Index() {
               Learn. <span style={{ color: "var(--gold)" }}>Lead.</span> Serve.
             </h1>
             <p className="mt-6 text-lg text-primary-foreground/80 max-w-xl">
-              A Cambridge-aligned co-educational school nurturing curious minds and compassionate
+              A CBC co-educational school nurturing curious minds and compassionate
               hearts. Explore our academics, clubs, and admissions — or just ask our AI anything.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -103,7 +103,7 @@ function Index() {
         </div>
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {[
-            { icon: BookOpen, title: "Cambridge curriculum", body: "Internationally benchmarked learning from KG to Grade 12.", to: "/academics" },
+            { icon: BookOpen, title: "CBC curriculum", body: "Competency-Based Curriculum learning from KG to Senior School.", to: "/academics" },
             { icon: Trophy, title: "30+ clubs & sports", body: "From robotics and MUN to cricket, swimming, and choir.", to: "/clubs" },
             { icon: Users, title: "Small class sizes", body: "Personal mentorship that lets every student be seen.", to: "/about" },
             { icon: Bus, title: "Safe transport", body: "GPS-tracked buses across 18 routes, monitored daily.", to: "/contact" },
