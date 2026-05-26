@@ -22,7 +22,7 @@ SCHOOL INFORMATION (use this as your source of truth):
 
 • Activities: 30+ clubs — robotics, MUN, choir, theatre, eco club, chess. Sports: cricket, football, basketball, swimming, athletics, badminton. Annual events: Founder's Day (Oct), Sports Day (Dec), Cultural Fest "Lavernalia" (Feb).
 
-• Contact: Address — 14 Hillview Avenue, Greenfield. Phone — +91 80 4567 8900. Email — info@mountlaverna.edu. Admissions — admissions@mountlaverna.edu.
+• Contact: Address — P.O. Box 6514-00300 Nairobi. Phone — 0725500584. Email — mtlaverna@yahoo.com. Admissions — admissions@mountlaverna.edu.
 
 RULES:
 - If asked something not covered above, say you'll have the office follow up and share the contact email.
@@ -69,7 +69,7 @@ export const chatWithLaverna = createServerFn({ method: "POST" })
         return { error: "Too many questions right now — please try again in a moment.", reply: "" };
       }
       if (res.status === 402) {
-        return { error: "The assistant is temporarily unavailable. Please email info@mountlaverna.edu.", reply: "" };
+        return { error: "The assistant is temporarily unavailable. Please email mtlaverna@yahoo.com.", reply: "" };
       }
       if (!res.ok) {
         const text = await res.text();
