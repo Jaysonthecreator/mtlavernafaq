@@ -6,7 +6,7 @@ export const Route = createFileRoute("/about")({
       { title: "About — Mount Laverna School" },
       { name: "description", content: "Forty years of Franciscan values, modern learning, and a vibrant K-12 community." },
       { property: "og:title", content: "About Mount Laverna School" },
-      { property: "og:description", content: "Founded 1985. Cambridge curriculum. Franciscan values." },
+      { property: "og:description", content: "Founded 1985. CBC curriculum. Franciscan values." },
     ],
   }),
   component: AboutPage,
@@ -27,9 +27,9 @@ function AboutPage() {
             by the simple promise of our motto: <em>Diligence Rewards</em>.
           </p>
           <p>
-            Our pedagogy combines the academic rigour of the Cambridge framework with the Franciscan
-            ideals of compassion, integrity, and service. Graduates leave equipped not just with strong
-            transcripts but with a sense of purpose.
+            Our pedagogy combines the academic rigour of Kenya's Competency-Based Curriculum (CBC)
+            with the Franciscan ideals of compassion, integrity, and service. Graduates leave equipped
+            not just with strong transcripts but with a sense of purpose.
           </p>
           <p>
             We believe small class sizes, attentive mentorship, and a culture of inquiry create the
@@ -39,11 +39,11 @@ function AboutPage() {
         <ul className="space-y-4">
           {[
             ["Founded", "1985"],
-            ["Curriculum", "Cambridge (CAIE)"],
+            ["Curriculum", "CBC (Competency-Based Curriculum)"],
             ["Students", "1,200+"],
             ["Faculty", "92, with 70% holding postgraduate degrees"],
             ["Campus", "12 acres in Greenfield"],
-            ["Accreditations", "CAIE · CIS candidate"],
+            ["Accreditations", "KICD · Ministry of Education"],
           ].map(([k, v]) => (
             <li key={k} className="p-5 rounded-xl bg-card border border-border">
               <p className="text-xs uppercase tracking-widest text-muted-foreground">{k}</p>

@@ -4,16 +4,16 @@ import { Beaker, Code2, Globe2, BookOpen, Users, Trophy, Languages, Calculator }
 export const Route = createFileRoute("/junior-secondary")({
   head: () => ({
     meta: [
-      { title: "Junior Secondary School (Grades 6–8) — Mount Laverna" },
+      { title: "Junior School (Grades 7–9) — Mount Laverna" },
       {
         name: "description",
         content:
-          "Junior Secondary at Mount Laverna (Grades 6–8) follows Cambridge Lower Secondary with sciences, coding, second languages and leadership programmes.",
+          "Junior School at Mount Laverna (Grades 7–9) follows Kenya's CBC with sciences, coding, languages and leadership programmes.",
       },
-      { property: "og:title", content: "Junior Secondary at Mount Laverna" },
+      { property: "og:title", content: "Junior School at Mount Laverna" },
       {
         property: "og:description",
-        content: "Cambridge Lower Secondary for ages 11–13: rigorous, exploratory, and supportive.",
+        content: "CBC Junior School for ages 12–14: rigorous, exploratory, and supportive.",
       },
     ],
   }),
@@ -21,12 +21,12 @@ export const Route = createFileRoute("/junior-secondary")({
 });
 
 const SUBJECTS = [
-  { icon: BookOpen, name: "English Language & Literature", body: "Cambridge Lower Secondary English with novel studies and weekly composition." },
+  { icon: BookOpen, name: "English Language & Literature", body: "CBC Junior School English with novel studies and weekly composition." },
   { icon: Calculator, name: "Mathematics", body: "Algebraic thinking, geometry, statistics and problem-solving olympiads." },
   { icon: Beaker, name: "Integrated Science", body: "Lab-based units across Biology, Chemistry and Physics." },
   { icon: Globe2, name: "Global Perspectives", body: "Research, collaboration and reasoned argument on global issues." },
   { icon: Code2, name: "Computing", body: "Python basics, design thinking and an annual app-build challenge." },
-  { icon: Languages, name: "Second Language", body: "Choice of Hindi, Kannada, French or Spanish." },
+  { icon: Languages, name: "Second Language", body: "Choice of Kiswahili, French, German or Mandarin." },
   { icon: Users, name: "Humanities", body: "World history, geography and civics taught through case studies." },
   { icon: Trophy, name: "PE & Wellness", body: "Team sports, athletics, swimming and adolescent wellness sessions." },
 ];
@@ -49,13 +49,13 @@ const PILLARS = [
 function JuniorSecondaryPage() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-16">
-      <p className="text-xs uppercase tracking-[0.25em] text-[var(--gold)]">Grades 6–8 · Ages 11–13</p>
+      <p className="text-xs uppercase tracking-[0.25em] text-[var(--gold)]">Grades 7–9 · Ages 12–14</p>
       <h1 className="mt-3 text-5xl md:text-6xl" style={{ fontFamily: "var(--font-display)" }}>
-        Junior Secondary School
+        Junior School
       </h1>
       <p className="mt-5 text-muted-foreground text-lg max-w-2xl">
         The bridge years. Students take on greater independence, deeper subject content and the
-        leadership opportunities that prepare them for IGCSE and beyond.
+        leadership opportunities that prepare them for Senior School and beyond.
       </p>
 
       <section className="mt-12 grid md:grid-cols-3 gap-5">
@@ -72,7 +72,7 @@ function JuniorSecondaryPage() {
           The curriculum
         </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          Aligned to Cambridge Lower Secondary (Stages 7–9), assessed via Cambridge Checkpoint at the end of Grade 8.
+          Aligned to Kenya's CBC Junior School (Grades 7–9), assessed through KICD-prescribed national assessments.
         </p>
         <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {SUBJECTS.map((s) => (
@@ -96,7 +96,7 @@ function JuniorSecondaryPage() {
             Signature programmes
           </h3>
           <ul className="mt-4 space-y-3 text-sm text-muted-foreground">
-            <li><strong className="text-foreground">Outdoor Education Week</strong> — annual residential trip to the Western Ghats.</li>
+            <li><strong className="text-foreground">Outdoor Education Week</strong> — annual residential trip to the Rift Valley.</li>
             <li><strong className="text-foreground">Junior MUN</strong> — in-house Model UN every February.</li>
             <li><strong className="text-foreground">Maker Lab</strong> — Friday afternoon design and build sessions.</li>
             <li><strong className="text-foreground">Service Saturdays</strong> — once-a-month projects with local NGOs.</li>
@@ -107,7 +107,7 @@ function JuniorSecondaryPage() {
             Ready for the next step?
           </h3>
           <p className="mt-3 text-primary-foreground/80">
-            Junior Secondary applications open in September. Visit our admissions page or chat with
+            Junior School applications open in September. Visit our admissions page or chat with
             Laverna AI for an instant overview.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">

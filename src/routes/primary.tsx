@@ -8,10 +8,10 @@ export const Route = createFileRoute("/primary")({
       {
         name: "description",
         content:
-          "Mount Laverna's Primary School (Grades 1–5) blends Cambridge Primary curriculum with hands-on inquiry, music, art and outdoor learning.",
+          "Mount Laverna's Primary School (Grades 1–6) follows the CBC curriculum with hands-on inquiry, music, art and outdoor learning.",
       },
       { property: "og:title", content: "Primary School at Mount Laverna" },
-      { property: "og:description", content: "Cambridge Primary, ages 6–10. Small classes, big imaginations." },
+      { property: "og:description", content: "CBC Primary, ages 6–11. Small classes, big imaginations." },
     ],
   }),
   component: PrimaryPage,
@@ -19,7 +19,7 @@ export const Route = createFileRoute("/primary")({
 
 const SUBJECTS = [
   { icon: BookOpen, name: "English", body: "Phonics, guided reading, journaling and weekly storytelling sessions." },
-  { icon: Calculator, name: "Mathematics", body: "Cambridge Primary Maths with manipulatives, puzzles and Mathletics." },
+  { icon: Calculator, name: "Mathematics", body: "CBC Primary Maths with manipulatives, puzzles and Mathletics." },
   { icon: Sparkles, name: "Science", body: "Inquiry-led units in living things, materials, forces and the Earth." },
   { icon: Sun, name: "Social Studies", body: "Local history, geography of India, and global citizenship." },
   { icon: Palette, name: "Arts & Music", body: "Visual art, choir, recorder, and our own Junior Drama Festival." },
@@ -39,7 +39,7 @@ const DAY = [
 function PrimaryPage() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-16">
-      <p className="text-xs uppercase tracking-[0.25em] text-[var(--gold)]">Grades 1–5 · Ages 6–10</p>
+      <p className="text-xs uppercase tracking-[0.25em] text-[var(--gold)]">Grades 1–6 · Ages 6–11</p>
       <h1 className="mt-3 text-5xl md:text-6xl" style={{ fontFamily: "var(--font-display)" }}>
         Primary School
       </h1>
@@ -52,7 +52,7 @@ function PrimaryPage() {
         {[
           ["22", "Max class size"],
           ["2", "Teachers per class"],
-          ["100%", "Cambridge-aligned"],
+          ["100%", "CBC-aligned"],
         ].map(([k, v]) => (
           <div key={v} className="p-5 rounded-2xl bg-card border border-border">
             <p className="text-3xl" style={{ fontFamily: "var(--font-display)", color: "var(--gold)" }}>
