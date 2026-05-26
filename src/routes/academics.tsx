@@ -5,9 +5,9 @@ export const Route = createFileRoute("/academics")({
   head: () => ({
     meta: [
       { title: "Academics — Mount Laverna School" },
-      { name: "description", content: "Cambridge-aligned curriculum from Kindergarten through Grade 12 at Mount Laverna School." },
+      { name: "description", content: "CBC curriculum from Kindergarten through Senior School at Mount Laverna School." },
       { property: "og:title", content: "Academics at Mount Laverna" },
-      { property: "og:description", content: "From foundational play-based learning to AS/A Levels." },
+      { property: "og:description", content: "From foundational play-based learning to Senior School under the CBC." },
     ],
   }),
   component: AcademicsPage,
@@ -22,27 +22,27 @@ const STAGES = [
   },
   {
     icon: GraduationCap,
-    grade: "Primary (Grades 1–5)",
-    range: "Ages 6–10",
-    body: "Cambridge Primary curriculum with a strong emphasis on literacy, mathematics, and inquiry.",
+    grade: "Lower Primary (Grades 1–3)",
+    range: "Ages 6–8",
+    body: "CBC foundational learning with a strong emphasis on literacy, numeracy, and inquiry.",
   },
   {
     icon: Beaker,
-    grade: "Lower Secondary (Grades 6–8)",
-    range: "Ages 11–13",
-    body: "Cambridge Lower Secondary with science labs, coding, and second-language electives.",
+    grade: "Upper Primary (Grades 4–6)",
+    range: "Ages 9–11",
+    body: "CBC upper primary with science, agriculture, creative arts, and digital literacy.",
   },
   {
     icon: Globe2,
-    grade: "IGCSE (Grades 9–10)",
-    range: "Ages 14–15",
-    body: "Cambridge IGCSE pathway across 18 subjects including the sciences, humanities, and arts.",
+    grade: "Junior School (Grades 7–9)",
+    range: "Ages 12–14",
+    body: "CBC junior school across the learning areas — sciences, humanities, languages, and pre-technical studies.",
   },
   {
     icon: GraduationCap,
-    grade: "AS / A Levels (Grades 11–12)",
-    range: "Ages 16–18",
-    body: "Specialised AS/A Level streams in Sciences, Commerce, and Humanities with university counselling.",
+    grade: "Senior School (Grades 10–12)",
+    range: "Ages 15–17",
+    body: "CBC senior school pathways: STEM, Arts & Sports Science, and Social Sciences.",
   },
 ];
 
@@ -51,11 +51,11 @@ function AcademicsPage() {
     <div className="max-w-7xl mx-auto px-6 py-16">
       <p className="text-xs uppercase tracking-[0.25em] text-[var(--gold)]">Academics</p>
       <h1 className="mt-3 text-5xl md:text-6xl" style={{ fontFamily: "var(--font-display)" }}>
-        A Cambridge education, KG to Grade 12.
+        A CBC education, KG to Senior School.
       </h1>
       <p className="mt-5 text-muted-foreground text-lg max-w-2xl">
-        Our curriculum is internationally benchmarked and locally rooted — preparing students for the
-        world's leading universities while keeping their feet on the ground.
+        Our curriculum follows Kenya's Competency-Based Curriculum (CBC) — preparing students with
+        the values, skills, and competencies for life and further learning.
       </p>
 
       <div className="mt-12 grid md:grid-cols-2 gap-5">
