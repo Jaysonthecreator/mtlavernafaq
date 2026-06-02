@@ -82,7 +82,7 @@ function AdmissionsPage() {
           <h3 className="text-2xl" style={{ fontFamily: "var(--font-display)" }}>
             Have questions?
           </h3>
-          <p className="mt-3 text-primary-foreground/80">
+          <p className="mt-3 text-primary-foreground">
             Our AI assistant can answer most admissions questions instantly — from required documents
             to scholarship details and uniform pricing.
           </p>

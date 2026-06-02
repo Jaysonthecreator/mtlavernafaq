@@ -80,7 +80,7 @@ function AcademicsPage() {
         <h2 className="text-3xl" style={{ fontFamily: "var(--font-display)" }}>
           Beyond the classroom
         </h2>
-        <p className="mt-3 max-w-2xl text-primary-foreground/80">
+        <p className="mt-3 max-w-2xl text-primary-foreground">
           Field trips, Model UN, science fairs, and an annual research symposium help students apply
           their learning to real-world problems.
         </p>

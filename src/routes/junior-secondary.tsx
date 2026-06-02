@@ -106,7 +106,7 @@ function JuniorSecondaryPage() {
           <h3 className="text-2xl" style={{ fontFamily: "var(--font-display)" }}>
             Ready for the next step?
           </h3>
-          <p className="mt-3 text-primary-foreground/80">
+          <p className="mt-3 text-primary-foreground">
             Junior School applications open in September. Visit our admissions page or chat with
             Laverna AI for an instant overview.
           </p>

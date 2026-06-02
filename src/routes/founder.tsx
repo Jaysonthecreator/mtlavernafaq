@@ -52,7 +52,7 @@ function FounderPage() {
               <p className="text-7xl" style={{ fontFamily: "var(--font-display)", color: "var(--gold)" }}>
                 MK
               </p>
-              <p className="mt-3 text-sm uppercase tracking-[0.25em] opacity-80">In loving memory</p>
+              <p className="mt-3 text-sm uppercase tracking-[0.25em]">In loving memory</p>
             </div>
           </div>
           <div className="p-5 rounded-xl bg-card border border-border">
@@ -134,7 +134,7 @@ function FounderPage() {
         <h2 className="text-3xl" style={{ fontFamily: "var(--font-display)" }}>
           Continue the journey
         </h2>
-        <p className="mt-3 max-w-2xl text-primary-foreground/80">
+        <p className="mt-3 max-w-2xl text-primary-foreground">
           Explore how Mother Kelvin's vision lives on in our Primary and Junior Secondary sections.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">

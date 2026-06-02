@@ -101,7 +101,7 @@ function PrimaryPage() {
           <h3 className="text-2xl" style={{ fontFamily: "var(--font-display)" }}>
             Beyond the timetable
           </h3>
-          <ul className="mt-4 space-y-2 text-primary-foreground/85 text-sm leading-relaxed">
+          <ul className="mt-4 space-y-2 text-primary-foreground text-sm leading-relaxed">
             <li>• Weekly nature walks on the East Field</li>
             <li>• Annual Story Week with visiting authors</li>
             <li>• Junior Sports Day in November</li>
