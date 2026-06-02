@@ -65,7 +65,7 @@ function ContactPage() {
           <h3 className="text-2xl" style={{ fontFamily: "var(--font-display)" }}>
             Need an answer now?
           </h3>
-          <p className="mt-3 text-primary-foreground/80">
+          <p className="mt-3 text-primary-foreground">
             Our AI assistant handles common questions instantly — admissions deadlines, fee details,
             transport routes and more.
           </p>
