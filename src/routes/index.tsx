@@ -52,7 +52,7 @@ function Index() {
             >
               Learn. <span style={{ color: "var(--gold)" }}>Lead.</span> Serve.
             </h1>
-            <p className="mt-6 text-lg text-primary-foreground/80 max-w-xl">
+            <p className="mt-6 text-lg text-primary-foreground max-w-xl">
               A CBC co-educational school nurturing curious minds and compassionate
               hearts. Explore our academics, clubs, and admissions — or just ask our AI anything.
             </p>
@@ -81,7 +81,7 @@ function Index() {
                   <dt className="text-3xl" style={{ fontFamily: "var(--font-display)", color: "var(--gold)" }}>
                     {s.k}
                   </dt>
-                  <dd className="text-xs uppercase tracking-wider text-primary-foreground/70">{s.v}</dd>
+                  <dd className="text-xs uppercase tracking-wider text-primary-foreground">{s.v}</dd>
                 </div>
               ))}
             </dl>
