@@ -1,16 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Cpu, Globe2, Music2, Palette, Mic2, Camera, Leaf, BookOpen,
-  Users, Trophy, Activity, Waves, Bike, Goal, HeartHandshake, Languages,
+  Music2, Palette, Mic2, Leaf, Languages, Utensils,
+  Sparkles, Scissors, Newspaper, Dumbbell,
+  Goal, Trophy, Waves, Crown, Target, CircleDot, Hand,
 } from "lucide-react";
 
 export const Route = createFileRoute("/clubs")({
   head: () => ({
     meta: [
-      { title: "Clubs & Activities — Mount Laverna School" },
-      { name: "description", content: "30+ co-curricular clubs and sports at Mount Laverna — robotics, MUN, choir, cricket, swimming and more." },
-      { property: "og:title", content: "Clubs & Activities at Mount Laverna" },
-      { property: "og:description", content: "Discover the 30+ clubs and sports at Mount Laverna School." },
+      { title: "Clubs & Academies — Mount Laverna School" },
+      { name: "description", content: "Co-curricular clubs and sports academies at Mount Laverna — art, music, drama, dance, ballet, cooking, fashion & design, French, plus football, handball, volleyball, skating, tennis, badminton, table tennis, chess and archery." },
+      { property: "og:title", content: "Clubs & Academies at Mount Laverna" },
+      { property: "og:description", content: "Explore Mount Laverna's clubs and sports academies." },
     ],
   }),
   component: ClubsPage,
@@ -18,46 +19,44 @@ export const Route = createFileRoute("/clubs")({
 
 const CATEGORIES = [
   {
-    name: "Academic & STEM",
-    accent: "from-blue-500/15 to-blue-500/0",
-    clubs: [
-      { icon: Cpu, name: "Robotics Club", body: "Builds and competes in WRO and FIRST LEGO League. Meets Wed & Fri." },
-      { icon: Globe2, name: "Model United Nations", body: "Conferences across India; in-house MUN every February." },
-      { icon: BookOpen, name: "Quiz Club", body: "Inter-school quizzing. Past winners of the Greenfield Open Bowl." },
-      { icon: Languages, name: "Debate Society", body: "British Parliamentary format. Trains for ASCEND & Frank Anthony." },
-      { icon: Activity, name: "Astronomy Club", body: "Monthly stargazing nights using the school's 8-inch Dobsonian." },
-    ],
-  },
-  {
     name: "Arts & Culture",
     accent: "from-amber-500/15 to-amber-500/0",
     clubs: [
-      { icon: Music2, name: "Choir & Orchestra", body: "Performs at Founder's Day and the December Carol Service." },
-      { icon: Palette, name: "Visual Arts Studio", body: "Painting, ceramics, and printmaking. Annual exhibition in March." },
-      { icon: Mic2, name: "Drama Club", body: "Two productions a year — a Shakespeare and a contemporary piece." },
-      { icon: Camera, name: "Film & Photography", body: "Runs the Lavernalia short film festival." },
-      { icon: Languages, name: "Spanish Circle", body: "Conversational Spanish with native-speaker mentors." },
+      { icon: Palette, name: "Art Club", body: "Painting, drawing, and mixed-media projects. Annual exhibition in March." },
+      { icon: Music2, name: "Music Club", body: "Vocal and instrumental training; performs at Founder's Day and end-of-year concerts." },
+      { icon: Mic2, name: "Drama Club", body: "Two productions a year — stage acting, voice, and improvisation." },
+      { icon: Sparkles, name: "Dancing Club", body: "Contemporary, hip-hop, and traditional African dance choreography." },
+      { icon: Crown, name: "Ballet Club", body: "Classical ballet training with graded showcases each term." },
+      { icon: Scissors, name: "Fashion & Design", body: "Sketching, textiles, and styling — culminates in the annual fashion showcase." },
+      { icon: Languages, name: "French Club", body: "Conversational French with native-speaker mentors. The only language club on offer." },
     ],
   },
   {
-    name: "Sports",
-    accent: "from-emerald-500/15 to-emerald-500/0",
-    clubs: [
-      { icon: Goal, name: "Cricket", body: "U-14 and U-17 squads. Home ground on the East Field." },
-      { icon: Trophy, name: "Basketball", body: "Boys & girls teams across U-12, U-14, and U-17." },
-      { icon: Waves, name: "Swimming", body: "Year-round training in the heated 25 m pool." },
-      { icon: Bike, name: "Athletics & Cross-country", body: "Annual Sports Day in November and inter-school meets." },
-      { icon: Activity, name: "Yoga & Wellness", body: "Mind-body sessions for Grades 6 and above." },
-    ],
-  },
-  {
-    name: "Service & Leadership",
+    name: "Lifestyle & Wellness",
     accent: "from-rose-500/15 to-rose-500/0",
     clubs: [
-      { icon: HeartHandshake, name: "Interact Club", body: "Rotary-affiliated community service projects." },
-      { icon: Leaf, name: "Eco Warriors", body: "Campus composting, tree planting, and waste audits." },
-      { icon: Users, name: "Student Council", body: "Elected representation across Grades 6–12." },
-      { icon: BookOpen, name: "Peer Tutoring", body: "Senior students mentor younger learners after school." },
+      { icon: Leaf, name: "Environmental Club", body: "Campus composting, tree planting, and waste audits." },
+      { icon: Utensils, name: "Cooking Club", body: "Hands-on culinary sessions covering Kenyan and international cuisine." },
+      { icon: Dumbbell, name: "Gymnastics Club", body: "Floor work, balance, and tumbling. Beginner to intermediate levels." },
+      { icon: Newspaper, name: "Journalism Club", body: "Runs the school newsletter and student-led reporting projects." },
+    ],
+  },
+];
+
+const ACADEMIES = [
+  {
+    name: "Sports Academies",
+    accent: "from-emerald-500/15 to-emerald-500/0",
+    clubs: [
+      { icon: Goal, name: "Football Academy", body: "Structured coaching across age groups with inter-school fixtures." },
+      { icon: Hand, name: "Handball Academy", body: "Team play, conditioning, and tournament preparation." },
+      { icon: Trophy, name: "Volleyball Academy", body: "Boys' and girls' squads training year-round." },
+      { icon: Waves, name: "Skating Academy", body: "Roller-skating fundamentals and speed training." },
+      { icon: CircleDot, name: "Tennis Academy", body: "Stroke technique, footwork, and match play on campus courts." },
+      { icon: CircleDot, name: "Badminton Academy", body: "Singles and doubles training for all skill levels." },
+      { icon: CircleDot, name: "Table Tennis Academy", body: "Spin, speed, and tactics — inter-house leagues each term." },
+      { icon: Crown, name: "Chess Academy", body: "FIDE-style coaching, rated tournaments, and puzzle clinics." },
+      { icon: Target, name: "Archery Academy", body: "Recurve archery with certified instructors on the East Field." },
     ],
   },
 ];
@@ -70,12 +69,12 @@ function ClubsPage() {
         Find your spark.
       </h1>
       <p className="mt-5 text-muted-foreground text-lg max-w-2xl">
-        Over 30 clubs and sports run every week — built and led by students, mentored by faculty.
-        Whether your child loves robots, raagas, or the rugby field, there's a home here.
+        Clubs and sports academies run every week — led by students, mentored by faculty.
+        From art and ballet to football and archery, every learner finds a home here.
       </p>
 
       <div className="mt-14 space-y-14">
-        {CATEGORIES.map((cat) => (
+        {[...CATEGORIES, ...ACADEMIES].map((cat) => (
           <section key={cat.name}>
             <div className="flex items-baseline justify-between border-b border-border pb-3">
               <h2 className="text-3xl" style={{ fontFamily: "var(--font-display)" }}>
