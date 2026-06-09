@@ -75,7 +75,7 @@ function Hero() {
       <div className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 15% 20%, oklch(0.82 0.14 85 / 0.45), transparent 45%), radial-gradient(circle at 85% 70%, oklch(0.55 0.1 140 / 0.4), transparent 50%)",
+            "radial-gradient(circle at 15% 20%, oklch(0.82 0.14 85 / 0.45), transparent 45%), radial-gradient(circle at 85% 70%, oklch(0.45 0.1 265 / 0.4), transparent 50%)",
         }} />
       <motion.div style={{ y, opacity }} className="relative max-w-7xl mx-auto px-6 py-24 w-full">
         <motion.div
@@ -85,12 +85,12 @@ function Hero() {
           className="flex items-center gap-4 mb-10"
         >
           <img src={mlsLogo} alt="Mount Laverna School crest" className="w-16 h-16 object-contain drop-shadow-2xl" />
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs uppercase tracking-[0.25em] text-primary-foreground">
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs uppercase tracking-[0.25em] text-foreground">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" /> Est. 1985 · CBC · K–12
           </span>
         </motion.div>
 
-        <h1 className="font-medium leading-[0.9] tracking-tight text-primary-foreground" style={{ fontFamily: "var(--font-display)" }}>
+        <h1 className="font-medium leading-[0.9] tracking-tight text-foreground" style={{ fontFamily: "var(--font-display)" }}>
           <Reveal delay={0.1}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw]">Learn.</span></Reveal>
           <Reveal delay={0.25}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw]" style={{ color: "var(--gold)", fontStyle: "italic" }}>Lead.</span></Reveal>
           <Reveal delay={0.4}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw]">Serve.</span></Reveal>
@@ -98,7 +98,7 @@ function Hero() {
 
         <motion.p
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7, duration: 0.8 }}
-          className="mt-10 max-w-xl text-lg text-primary-foreground/90"
+          className="mt-10 max-w-xl text-lg text-foreground/90"
         >
           A CBC co-educational school in Nairobi nurturing curious minds and compassionate hearts. Built for tomorrow, rooted in character.
         </motion.p>
@@ -118,7 +118,7 @@ function Hero() {
       <motion.div
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-primary-foreground/70 text-[10px] tracking-[0.4em] uppercase"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground/70 text-[10px] tracking-[0.4em] uppercase"
       >
         Scroll ↓
       </motion.div>
