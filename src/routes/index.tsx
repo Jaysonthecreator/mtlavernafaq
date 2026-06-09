@@ -67,8 +67,10 @@ function CursorBlob() {
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const rawOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const y = useSpring(rawY, { stiffness: 80, damping: 30 });
+  const opacity = useSpring(rawOpacity, { stiffness: 80, damping: 30 });
 
   return (
     <section ref={ref} className="relative min-h-screen overflow-hidden flex items-center" style={{ background: "var(--gradient-hero)" }}>
