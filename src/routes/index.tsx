@@ -178,19 +178,16 @@ function MagneticLink({ to, children, variant }: { to: string; children: React.R
 /* -------- Infinite marquee -------- */
 function Marquee() {
   const items = ["CBC Curriculum", "★", "Founded 1985", "★", "30+ Clubs", "★", "Nairobi", "★", "K–12", "★", "Learn. Lead. Serve.", "★"];
+  const all = [...items, ...items, ...items, ...items];
   return (
     <section className="border-y border-border py-6 overflow-hidden bg-background">
-      <motion.div
-        className="flex gap-12 whitespace-nowrap"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-      >
-        {[...items, ...items, ...items, ...items].map((t, i) => (
-          <span key={i} className="text-3xl md:text-5xl font-medium text-foreground/80" style={{ fontFamily: "var(--font-display)" }}>
+      <div className="flex gap-12 whitespace-nowrap animate-marquee will-change-transform">
+        {all.map((t, i) => (
+          <span key={i} className="text-3xl md:text-5xl font-medium text-foreground/80 shrink-0" style={{ fontFamily: "var(--font-display)" }}>
             {t}
           </span>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }
