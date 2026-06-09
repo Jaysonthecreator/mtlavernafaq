@@ -302,7 +302,7 @@ function ChatSection() {
 function BigCTA() {
   return (
     <section className="relative overflow-hidden py-32 md:py-48" style={{ background: "var(--gradient-hero)" }}>
-      <div className="max-w-7xl mx-auto px-6 text-center text-primary-foreground">
+      <div className="max-w-7xl mx-auto px-6 text-center text-foreground">
         <motion.h2
           initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
           className="text-6xl md:text-8xl lg:text-9xl leading-[0.95]"
