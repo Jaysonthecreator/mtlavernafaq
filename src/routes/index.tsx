@@ -42,8 +42,8 @@ function Index() {
 function CursorBlob() {
   const x = useMotionValue(-200);
   const y = useMotionValue(-200);
-  const sx = useSpring(x, { stiffness: 120, damping: 18, mass: 0.4 });
-  const sy = useSpring(y, { stiffness: 120, damping: 18, mass: 0.4 });
+  const sx = useSpring(x, { stiffness: 50, damping: 20, mass: 0.8 });
+  const sy = useSpring(y, { stiffness: 50, damping: 20, mass: 0.8 });
   useEffect(() => {
     const move = (e: MouseEvent) => {
       x.set(e.clientX - 120);
@@ -55,7 +55,7 @@ function CursorBlob() {
   return (
     <motion.div
       aria-hidden
-      style={{ x: sx, y: sy }}
+      style={{ x: sx, y: sy, willChange: "transform" }}
       className="pointer-events-none fixed top-0 left-0 z-[1] hidden md:block w-[240px] h-[240px] rounded-full blur-3xl opacity-60"
     >
       <div className="w-full h-full rounded-full" style={{ background: "radial-gradient(circle, var(--gold), transparent 65%)" }} />
@@ -67,8 +67,10 @@ function CursorBlob() {
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const rawOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const y = useSpring(rawY, { stiffness: 80, damping: 30 });
+  const opacity = useSpring(rawOpacity, { stiffness: 80, damping: 30 });
 
   return (
     <section ref={ref} className="relative min-h-screen overflow-hidden flex items-center" style={{ background: "var(--gradient-hero)" }}>
@@ -145,8 +147,8 @@ function MagneticLink({ to, children, variant }: { to: string; children: React.R
   const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const sx = useSpring(x, { stiffness: 200, damping: 15 });
-  const sy = useSpring(y, { stiffness: 200, damping: 15 });
+  const sx = useSpring(x, { stiffness: 100, damping: 25, mass: 0.5 });
+  const sy = useSpring(y, { stiffness: 100, damping: 25, mass: 0.5 });
   const onMove = (e: React.MouseEvent) => {
     const r = ref.current!.getBoundingClientRect();
     x.set((e.clientX - (r.left + r.width / 2)) * 0.3);
@@ -158,7 +160,7 @@ function MagneticLink({ to, children, variant }: { to: string; children: React.R
     ? "text-primary-foreground"
     : "border border-white/25 text-foreground hover:bg-white/10";
   return (
-    <motion.div style={{ x: sx, y: sy }}>
+    <motion.div style={{ x: sx, y: sy, willChange: "transform" }}>
       <Link
         ref={ref}
         to={to}
@@ -176,19 +178,16 @@ function MagneticLink({ to, children, variant }: { to: string; children: React.R
 /* -------- Infinite marquee -------- */
 function Marquee() {
   const items = ["CBC Curriculum", "★", "Founded 1985", "★", "30+ Clubs", "★", "Nairobi", "★", "K–12", "★", "Learn. Lead. Serve.", "★"];
+  const all = [...items, ...items, ...items, ...items];
   return (
     <section className="border-y border-border py-6 overflow-hidden bg-background">
-      <motion.div
-        className="flex gap-12 whitespace-nowrap"
-        animate={{ x: ["0%", "-50%"] }}
-        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-      >
-        {[...items, ...items, ...items, ...items].map((t, i) => (
-          <span key={i} className="text-3xl md:text-5xl font-medium text-foreground/80" style={{ fontFamily: "var(--font-display)" }}>
+      <div className="flex gap-12 whitespace-nowrap animate-marquee will-change-transform">
+        {all.map((t, i) => (
+          <span key={i} className="text-3xl md:text-5xl font-medium text-foreground/80 shrink-0" style={{ fontFamily: "var(--font-display)" }}>
             {t}
           </span>
         ))}
-      </motion.div>
+      </div>
     </section>
   );
 }
