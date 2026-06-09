@@ -42,8 +42,8 @@ function Index() {
 function CursorBlob() {
   const x = useMotionValue(-200);
   const y = useMotionValue(-200);
-  const sx = useSpring(x, { stiffness: 120, damping: 18, mass: 0.4 });
-  const sy = useSpring(y, { stiffness: 120, damping: 18, mass: 0.4 });
+  const sx = useSpring(x, { stiffness: 50, damping: 20, mass: 0.8 });
+  const sy = useSpring(y, { stiffness: 50, damping: 20, mass: 0.8 });
   useEffect(() => {
     const move = (e: MouseEvent) => {
       x.set(e.clientX - 120);
@@ -55,7 +55,7 @@ function CursorBlob() {
   return (
     <motion.div
       aria-hidden
-      style={{ x: sx, y: sy }}
+      style={{ x: sx, y: sy, willChange: "transform" }}
       className="pointer-events-none fixed top-0 left-0 z-[1] hidden md:block w-[240px] h-[240px] rounded-full blur-3xl opacity-60"
     >
       <div className="w-full h-full rounded-full" style={{ background: "radial-gradient(circle, var(--gold), transparent 65%)" }} />
