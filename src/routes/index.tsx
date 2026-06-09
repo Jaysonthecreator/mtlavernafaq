@@ -155,8 +155,8 @@ function MagneticLink({ to, children, variant }: { to: string; children: React.R
   const onLeave = () => { x.set(0); y.set(0); };
   const base = "px-7 py-4 rounded-full font-medium inline-flex items-center gap-2 text-sm uppercase tracking-wider transition";
   const styles = variant === "gold"
-    ? "text-primary"
-    : "border border-white/25 text-primary-foreground hover:bg-white/10";
+    ? "text-primary-foreground"
+    : "border border-white/25 text-foreground hover:bg-white/10";
   return (
     <motion.div style={{ x: sx, y: sy }}>
       <Link
