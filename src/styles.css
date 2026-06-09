@@ -146,6 +146,10 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
@@ -156,4 +160,13 @@
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 30s linear infinite;
 }
