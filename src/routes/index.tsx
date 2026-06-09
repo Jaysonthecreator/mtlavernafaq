@@ -147,8 +147,8 @@ function MagneticLink({ to, children, variant }: { to: string; children: React.R
   const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const sx = useSpring(x, { stiffness: 200, damping: 15 });
-  const sy = useSpring(y, { stiffness: 200, damping: 15 });
+  const sx = useSpring(x, { stiffness: 100, damping: 25, mass: 0.5 });
+  const sy = useSpring(y, { stiffness: 100, damping: 25, mass: 0.5 });
   const onMove = (e: React.MouseEvent) => {
     const r = ref.current!.getBoundingClientRect();
     x.set((e.clientX - (r.left + r.width / 2)) * 0.3);
@@ -160,7 +160,7 @@ function MagneticLink({ to, children, variant }: { to: string; children: React.R
     ? "text-primary-foreground"
     : "border border-white/25 text-foreground hover:bg-white/10";
   return (
-    <motion.div style={{ x: sx, y: sy }}>
+    <motion.div style={{ x: sx, y: sy, willChange: "transform" }}>
       <Link
         ref={ref}
         to={to}
