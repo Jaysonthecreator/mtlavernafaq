@@ -49,7 +49,7 @@ function ChromeOrb({ className = "", style = {}, speed = 80 }: { className?: str
       className={`pointer-events-none absolute rounded-full blur-2xl ${className}`}
       style={{
         background:
-          "conic-gradient(from 90deg at 50% 50%, oklch(0.85 0.18 200), oklch(0.72 0.25 320), oklch(0.88 0.1 60), oklch(0.7 0.22 280), oklch(0.85 0.18 200))",
+          "conic-gradient(from 90deg at 50% 50%, oklch(0.86 0.14 85), oklch(0.45 0.12 265), oklch(0.92 0.1 90), oklch(0.35 0.1 260), oklch(0.86 0.14 85))",
         maskImage: "radial-gradient(circle, black 35%, transparent 70%)",
         WebkitMaskImage: "radial-gradient(circle, black 35%, transparent 70%)",
         ...style,
@@ -103,7 +103,7 @@ function Hero() {
         className="pointer-events-none absolute -right-[20vw] top-1/2 -translate-y-1/2 w-[90vw] h-[90vw] md:w-[70vw] md:h-[70vw] rounded-full blur-2xl opacity-70"
         style={{
           background:
-            "conic-gradient(from 90deg at 50% 50%, oklch(0.85 0.18 200), oklch(0.72 0.25 320), oklch(0.88 0.1 60), oklch(0.7 0.22 280), oklch(0.85 0.18 200))",
+            "conic-gradient(from 90deg at 50% 50%, oklch(0.86 0.14 85), oklch(0.45 0.12 265), oklch(0.92 0.1 90), oklch(0.35 0.1 260), oklch(0.86 0.14 85))",
           maskImage: "radial-gradient(circle, black 35%, transparent 70%)",
           WebkitMaskImage: "radial-gradient(circle, black 35%, transparent 70%)",
         }}
@@ -133,7 +133,7 @@ function Hero() {
 
         <h1 className="font-medium leading-[0.9] tracking-tight text-foreground" style={{ fontFamily: "var(--font-display)" }}>
           <Reveal delay={0.1}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw]">Learn.</span></Reveal>
-          <Reveal delay={0.25}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw] italic font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.95 0.05 200), oklch(0.78 0.2 340) 50%, oklch(0.9 0.1 60))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>Lead.</span></Reveal>
+          <Reveal delay={0.25}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw] italic font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.92 0.12 95), oklch(0.78 0.15 80) 50%, oklch(0.88 0.13 75))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>Lead.</span></Reveal>
           <Reveal delay={0.4}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw]">Serve.</span></Reveal>
         </h1>
 
@@ -258,7 +258,7 @@ function Manifesto() {
                     fontFamily: "var(--font-serif)",
                     fontStyle: "italic",
                     background:
-                      "linear-gradient(135deg, oklch(0.95 0.05 200), oklch(0.78 0.2 340) 50%, oklch(0.9 0.1 60))",
+                      "linear-gradient(135deg, oklch(0.92 0.12 95), oklch(0.78 0.15 80) 50%, oklch(0.88 0.13 75))",
                     WebkitBackgroundClip: "text",
                     backgroundClip: "text",
                     color: "transparent",
@@ -318,7 +318,7 @@ function Pillars() {
         <div>
           <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold)] mb-3">// What we do</p>
           <h2 className="relative text-5xl md:text-6xl max-w-2xl" style={{ fontFamily: "var(--font-display)" }}>
-            Four pillars. <em className="font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.95 0.05 200), oklch(0.78 0.2 340) 50%, oklch(0.9 0.1 60))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>One school.</em>
+            Four pillars. <em className="font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.92 0.12 95), oklch(0.78 0.15 80) 50%, oklch(0.88 0.13 75))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>One school.</em>
           </h2>
         </div>
       </div>
@@ -365,7 +365,7 @@ function ChatSection() {
           <Sparkles className="w-3 h-3" /> Ask anything, anytime
         </p>
         <h2 className="text-5xl md:text-6xl" style={{ fontFamily: "var(--font-display)" }}>
-          Meet the <em className="font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.95 0.05 200), oklch(0.78 0.2 340) 50%, oklch(0.9 0.1 60))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>Laverna Assistant.</em>
+          Meet the <em className="font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.92 0.12 95), oklch(0.78 0.15 80) 50%, oklch(0.88 0.13 75))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>Laverna Assistant.</em>
         </h2>
         <p className="mt-6 text-lg text-muted-foreground max-w-md">
           Fees, uniforms, admissions, transport, the Mzizi portal — get answers in seconds. Or just ask for homework help.
@@ -392,7 +392,7 @@ function BigCTA() {
           className="text-6xl md:text-8xl lg:text-9xl leading-[0.95]"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Ready to <em className="font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.95 0.05 200), oklch(0.78 0.2 340) 50%, oklch(0.9 0.1 60))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>join us?</em>
+          Ready to <em className="font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.92 0.12 95), oklch(0.78 0.15 80) 50%, oklch(0.88 0.13 75))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>join us?</em>
         </motion.h2>
         <motion.div
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.6 }}
