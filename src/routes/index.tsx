@@ -113,7 +113,7 @@ function Hero() {
 
         <h1 className="font-medium leading-[0.9] tracking-tight text-foreground" style={{ fontFamily: "var(--font-display)" }}>
           <Reveal delay={0.1}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw]">Learn.</span></Reveal>
-          <Reveal delay={0.25}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw]" style={{ color: "var(--gold)", fontStyle: "italic" }}>Lead.</span></Reveal>
+          <Reveal delay={0.25}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw] italic font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.95 0.05 200), oklch(0.78 0.2 340) 50%, oklch(0.9 0.1 60))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>Lead.</span></Reveal>
           <Reveal delay={0.4}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw]">Serve.</span></Reveal>
         </h1>
 
