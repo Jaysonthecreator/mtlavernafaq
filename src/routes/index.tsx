@@ -31,10 +31,30 @@ function Index() {
       <Hero />
       <Marquee />
       <Manifesto />
+      <StatsStrip />
       <Pillars />
       <ChatSection />
       <BigCTA />
     </>
+  );
+}
+
+/* -------- Reusable iridescent chrome orb -------- */
+function ChromeOrb({ className = "", style = {}, speed = 80 }: { className?: string; style?: React.CSSProperties; speed?: number }) {
+  return (
+    <motion.div
+      aria-hidden
+      animate={{ rotate: 360 }}
+      transition={{ duration: speed, repeat: Infinity, ease: "linear" }}
+      className={`pointer-events-none absolute rounded-full blur-2xl ${className}`}
+      style={{
+        background:
+          "conic-gradient(from 90deg at 50% 50%, oklch(0.85 0.18 200), oklch(0.72 0.25 320), oklch(0.88 0.1 60), oklch(0.7 0.22 280), oklch(0.85 0.18 200))",
+        maskImage: "radial-gradient(circle, black 35%, transparent 70%)",
+        WebkitMaskImage: "radial-gradient(circle, black 35%, transparent 70%)",
+        ...style,
+      }}
+    />
   );
 }
 
@@ -220,9 +240,10 @@ function Manifesto() {
     "We light up curiosity.",
   ];
   return (
-    <section className="max-w-6xl mx-auto px-6 py-32 md:py-48">
-      <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold)] mb-10">// Manifesto</p>
-      <div className="space-y-2">
+    <section className="relative overflow-hidden max-w-6xl mx-auto px-6 py-32 md:py-48">
+      <ChromeOrb className="-left-[20vw] top-[10%] w-[60vw] h-[60vw] opacity-40" speed={120} />
+      <p className="relative text-xs uppercase tracking-[0.4em] text-[var(--gold)] mb-10">// Manifesto</p>
+      <div className="relative space-y-2">
         {lines.map((line, i) => (
           <motion.h2
             key={i}
@@ -231,10 +252,51 @@ function Manifesto() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
             className="text-5xl md:text-7xl lg:text-8xl leading-[1.05]"
-            style={{ fontFamily: "var(--font-display)", fontStyle: i % 2 ? "italic" : "normal", color: i % 2 ? "var(--gold)" : undefined }}
+            style={
+              i % 2
+                ? {
+                    fontFamily: "var(--font-serif)",
+                    fontStyle: "italic",
+                    background:
+                      "linear-gradient(135deg, oklch(0.95 0.05 200), oklch(0.78 0.2 340) 50%, oklch(0.9 0.1 60))",
+                    WebkitBackgroundClip: "text",
+                    backgroundClip: "text",
+                    color: "transparent",
+                  }
+                : { fontFamily: "var(--font-display)" }
+            }
           >
             {line}
           </motion.h2>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+/* -------- Stats strip (case-study feel) -------- */
+function StatsStrip() {
+  const stats = [
+    { k: "40+", v: "Years of teaching" },
+    { k: "1,200", v: "Students across K–12" },
+    { k: "30+", v: "Clubs & academies" },
+    { k: "18", v: "Nairobi bus routes" },
+  ];
+  return (
+    <section className="max-w-7xl mx-auto px-6 pb-24">
+      <div className="grid grid-cols-2 md:grid-cols-4 border-t border-border">
+        {stats.map((s, i) => (
+          <motion.div
+            key={s.k}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: i * 0.08 }}
+            className="px-6 py-10 border-b md:border-b-0 md:border-r border-border last:border-r-0"
+          >
+            <div className="text-5xl md:text-6xl" style={{ fontFamily: "var(--font-display)" }}>{s.k}</div>
+            <div className="mt-3 text-xs uppercase tracking-[0.3em] text-muted-foreground">{s.v}</div>
+          </motion.div>
         ))}
       </div>
     </section>
@@ -250,16 +312,17 @@ function Pillars() {
     { icon: Bus, num: "04", title: "Safe transport", body: "GPS-tracked buses on 18 Nairobi routes, monitored every trip.", to: "/contact" },
   ];
   return (
-    <section className="max-w-7xl mx-auto px-6 py-24">
+    <section className="relative overflow-hidden max-w-7xl mx-auto px-6 py-24">
+      <ChromeOrb className="-right-[15vw] top-[30%] w-[50vw] h-[50vw] opacity-30" speed={150} />
       <div className="flex items-end justify-between flex-wrap gap-6 mb-16">
         <div>
           <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold)] mb-3">// What we do</p>
-          <h2 className="text-5xl md:text-6xl max-w-2xl" style={{ fontFamily: "var(--font-display)" }}>
-            Four pillars. <em style={{ color: "var(--gold)" }}>One school.</em>
+          <h2 className="relative text-5xl md:text-6xl max-w-2xl" style={{ fontFamily: "var(--font-display)" }}>
+            Four pillars. <em className="font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.95 0.05 200), oklch(0.78 0.2 340) 50%, oklch(0.9 0.1 60))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>One school.</em>
           </h2>
         </div>
       </div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {items.map((it, i) => (
           <motion.div
             key={it.title}
@@ -270,8 +333,9 @@ function Pillars() {
           >
             <Link
               to={it.to}
-              className="group block p-6 h-full rounded-3xl bg-card border border-border hover:border-[var(--gold)] transition-all duration-500 hover:-translate-y-2"
+              className="group relative block p-6 h-full rounded-3xl border border-white/10 backdrop-blur-xl bg-white/[0.03] hover:border-[var(--gold)]/60 hover:bg-white/[0.06] transition-all duration-500 hover:-translate-y-2 overflow-hidden"
             >
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: "radial-gradient(circle at 50% 0%, oklch(0.68 0.27 350 / 0.18), transparent 60%)" }} />
               <div className="flex items-start justify-between">
                 <span className="text-xs tracking-widest text-muted-foreground">{it.num}</span>
                 <it.icon className="w-5 h-5 text-[var(--gold)] group-hover:rotate-12 transition-transform duration-500" />
@@ -292,21 +356,22 @@ function Pillars() {
 /* -------- Chat section -------- */
 function ChatSection() {
   return (
-    <section className="max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center">
-      <motion.div
+    <section className="relative overflow-hidden max-w-7xl mx-auto px-6 py-24 grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center">
+      <ChromeOrb className="left-1/3 -top-[10vw] w-[50vw] h-[50vw] opacity-25" speed={100} />
+      <motion.div className="relative"
         initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
       >
         <p className="text-xs uppercase tracking-[0.4em] text-[var(--gold)] mb-4 inline-flex items-center gap-2">
           <Sparkles className="w-3 h-3" /> Ask anything, anytime
         </p>
         <h2 className="text-5xl md:text-6xl" style={{ fontFamily: "var(--font-display)" }}>
-          Meet the <em style={{ color: "var(--gold)" }}>Laverna Assistant.</em>
+          Meet the <em className="font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.95 0.05 200), oklch(0.78 0.2 340) 50%, oklch(0.9 0.1 60))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>Laverna Assistant.</em>
         </h2>
         <p className="mt-6 text-lg text-muted-foreground max-w-md">
           Fees, uniforms, admissions, transport, the Mzizi portal — get answers in seconds. Or just ask for homework help.
         </p>
       </motion.div>
-      <motion.div
+      <motion.div className="relative"
         initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }}
         id="chat"
       >
@@ -320,13 +385,14 @@ function ChatSection() {
 function BigCTA() {
   return (
     <section className="relative overflow-hidden py-32 md:py-48" style={{ background: "var(--gradient-hero)" }}>
-      <div className="max-w-7xl mx-auto px-6 text-center text-foreground">
+      <ChromeOrb className="left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] opacity-40" speed={140} />
+      <div className="relative max-w-7xl mx-auto px-6 text-center text-foreground">
         <motion.h2
           initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }}
           className="text-6xl md:text-8xl lg:text-9xl leading-[0.95]"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Ready to <em style={{ color: "var(--gold)" }}>join us?</em>
+          Ready to <em className="font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.95 0.05 200), oklch(0.78 0.2 340) 50%, oklch(0.9 0.1 60))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>join us?</em>
         </motion.h2>
         <motion.div
           initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.3, duration: 0.6 }}
