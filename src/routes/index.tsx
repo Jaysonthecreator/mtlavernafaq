@@ -74,11 +74,30 @@ function Hero() {
 
   return (
     <section ref={ref} className="relative min-h-screen overflow-hidden flex items-center" style={{ background: "var(--gradient-hero)" }}>
-      <div className="absolute inset-0 opacity-30 pointer-events-none"
+      {/* Iridescent chrome orb */}
+      <motion.div
+        aria-hidden
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1, rotate: 360 }}
+        transition={{ scale: { duration: 1.4, ease: [0.22, 1, 0.36, 1] }, opacity: { duration: 1.4 }, rotate: { duration: 60, repeat: Infinity, ease: "linear" } }}
+        className="pointer-events-none absolute -right-[20vw] top-1/2 -translate-y-1/2 w-[90vw] h-[90vw] md:w-[70vw] md:h-[70vw] rounded-full blur-2xl opacity-70"
+        style={{
+          background:
+            "conic-gradient(from 90deg at 50% 50%, oklch(0.85 0.18 200), oklch(0.72 0.25 320), oklch(0.88 0.1 60), oklch(0.7 0.22 280), oklch(0.85 0.18 200))",
+          maskImage: "radial-gradient(circle, black 35%, transparent 70%)",
+          WebkitMaskImage: "radial-gradient(circle, black 35%, transparent 70%)",
+        }}
+      />
+      {/* noise / grid overlay */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
         style={{
           backgroundImage:
-            "radial-gradient(circle at 15% 20%, oklch(0.82 0.14 85 / 0.45), transparent 45%), radial-gradient(circle at 85% 70%, oklch(0.45 0.1 265 / 0.4), transparent 50%)",
-        }} />
+            "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }}
+      />
       <motion.div style={{ y, opacity }} className="relative max-w-7xl mx-auto px-6 py-24 w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
