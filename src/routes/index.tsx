@@ -2,8 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Chatbot } from "@/components/Chatbot";
 import { BookOpen, Users, Bus, Trophy, ArrowRight, Sparkles } from "lucide-react";
 import mlsLogo from "@/assets/mls-logo.png";
+import campusHero from "@/assets/campus-hero.jpg";
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePresence } from "framer-motion";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -87,81 +88,124 @@ function CursorBlob() {
 function Hero() {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const rawY = useTransform(scrollYProgress, [0, 1], [0, 200]);
+  const rawY = useTransform(scrollYProgress, [0, 1], [0, 150]);
   const rawOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const y = useSpring(rawY, { stiffness: 80, damping: 30 });
   const opacity = useSpring(rawOpacity, { stiffness: 80, damping: 30 });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
+
+  const subjects = ["Science", "the Arts", "Football", "Music", "Drama", "Faith", "Leadership"];
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setIdx((i) => (i + 1) % subjects.length), 2200);
+    return () => clearInterval(t);
+  }, []);
 
   return (
-    <section ref={ref} className="relative min-h-screen overflow-hidden flex items-center" style={{ background: "var(--gradient-hero)" }}>
-      {/* Iridescent chrome orb */}
+    <section ref={ref} className="relative min-h-screen overflow-hidden flex items-center justify-center text-center">
+      {/* Full-bleed background image with parallax */}
       <motion.div
         aria-hidden
-        initial={{ scale: 0.8, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1, rotate: 360 }}
-        transition={{ scale: { duration: 1.4, ease: [0.22, 1, 0.36, 1] }, opacity: { duration: 1.4 }, rotate: { duration: 60, repeat: Infinity, ease: "linear" } }}
-        className="pointer-events-none absolute -right-[20vw] top-1/2 -translate-y-1/2 w-[90vw] h-[90vw] md:w-[70vw] md:h-[70vw] rounded-full blur-2xl opacity-70"
-        style={{
-          background:
-            "conic-gradient(from 90deg at 50% 50%, oklch(0.86 0.14 85), oklch(0.45 0.12 265), oklch(0.92 0.1 90), oklch(0.35 0.1 260), oklch(0.86 0.14 85))",
-          maskImage: "radial-gradient(circle, black 35%, transparent 70%)",
-          WebkitMaskImage: "radial-gradient(circle, black 35%, transparent 70%)",
-        }}
-      />
-      {/* noise / grid overlay */}
+        style={{ y: bgY }}
+        className="absolute inset-0 -top-[10%] -bottom-[10%]"
+      >
+        <img
+          src={campusHero}
+          alt=""
+          className="w-full h-full object-cover"
+          fetchPriority="high"
+        />
+      </motion.div>
+      {/* Navy gradient overlay */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(180deg, oklch(0.16 0.04 260 / 0.55) 0%, oklch(0.16 0.04 260 / 0.35) 40%, oklch(0.13 0.04 260 / 0.85) 100%)",
+        }}
+      />
+      {/* subtle grid */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.05]"
         style={{
           backgroundImage:
             "linear-gradient(to right, white 1px, transparent 1px), linear-gradient(to bottom, white 1px, transparent 1px)",
           backgroundSize: "80px 80px",
         }}
       />
-      <motion.div style={{ y, opacity }} className="relative max-w-7xl mx-auto px-6 py-24 w-full">
+
+      <motion.div style={{ y, opacity }} className="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full flex flex-col items-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="flex items-center gap-4 mb-10"
+          className="flex items-center gap-3 mb-8"
         >
-          <img src={mlsLogo} alt="Mount Laverna School crest" className="w-16 h-16 object-contain drop-shadow-2xl" />
-          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 text-xs uppercase tracking-[0.25em] text-foreground">
+          <img src={mlsLogo} alt="Mount Laverna School crest" className="w-14 h-14 object-contain drop-shadow-2xl" />
+          <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/15 backdrop-blur-md text-[10px] uppercase tracking-[0.3em] text-foreground">
             <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" /> Est. 1985 · CBC · K–12
           </span>
         </motion.div>
 
-        <h1 className="font-medium leading-[0.9] tracking-tight text-foreground" style={{ fontFamily: "var(--font-display)" }}>
-          <Reveal delay={0.1}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw]">Learn.</span></Reveal>
-          <Reveal delay={0.25}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw] italic font-normal" style={{ fontFamily: "var(--font-serif)", background: "linear-gradient(135deg, oklch(0.92 0.12 95), oklch(0.78 0.15 80) 50%, oklch(0.88 0.13 75))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>Lead.</span></Reveal>
-          <Reveal delay={0.4}><span className="block text-[18vw] md:text-[12vw] lg:text-[10vw]">Serve.</span></Reveal>
+        <h1
+          className="font-normal italic leading-[1] tracking-tight text-foreground text-[14vw] md:text-[8vw] lg:text-[6.5vw] max-w-5xl"
+          style={{ fontFamily: "var(--font-serif)" }}
+        >
+          <Reveal delay={0.15}>
+            <span className="block">
+              The <span style={{ background: "linear-gradient(135deg, oklch(0.92 0.12 95), oklch(0.78 0.15 80) 50%, oklch(0.88 0.13 75))", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent" }}>Magic</span> of Mount Laverna
+            </span>
+          </Reveal>
         </h1>
 
-        <motion.p
-          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7, duration: 0.8 }}
-          className="mt-10 max-w-xl text-lg text-foreground/90"
+        <motion.div
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8, duration: 0.8 }}
+          className="mt-10 flex flex-wrap items-baseline justify-center gap-x-4 gap-y-2 text-2xl md:text-4xl text-foreground/90"
+          style={{ fontFamily: "var(--font-display)" }}
         >
-          A CBC co-educational school in Nairobi nurturing curious minds and compassionate hearts. Built for tomorrow, rooted in character.
-        </motion.p>
+          <span>We Teach You</span>
+          <span className="relative inline-block min-w-[220px] md:min-w-[340px] text-left">
+            <AnimatePresence mode="wait">
+              <motion.span
+                key={idx}
+                initial={{ y: 30, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -30, opacity: 0 }}
+                transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                className="inline-block italic"
+                style={{ fontFamily: "var(--font-serif)", color: "var(--gold)" }}
+              >
+                {subjects[idx]}
+              </motion.span>
+            </AnimatePresence>
+          </span>
+        </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.9, duration: 0.6 }}
-          className="mt-10 flex flex-wrap gap-3"
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.6 }}
+          className="mt-12"
         >
           <MagneticLink to="/admissions" variant="gold">
-            Apply for Admission <ArrowRight className="w-4 h-4" />
+            Start Your Journey <ArrowRight className="w-4 h-4" />
           </MagneticLink>
-          <MagneticLink to="/clubs" variant="ghost">Explore Clubs</MagneticLink>
         </motion.div>
       </motion.div>
 
-      {/* scroll indicator */}
+      {/* Scroll indicator (mouse) */}
       <motion.div
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-foreground/70 text-[10px] tracking-[0.4em] uppercase"
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 0.8 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
       >
-        Scroll ↓
+        <span className="text-foreground/70 text-[10px] tracking-[0.4em] uppercase">Scroll to explore</span>
+        <div className="w-6 h-10 rounded-full border border-white/30 flex items-start justify-center p-1.5">
+          <motion.div
+            animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
+            transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+            className="w-1 h-2 rounded-full bg-[var(--gold)]"
+          />
+        </div>
       </motion.div>
     </section>
   );
