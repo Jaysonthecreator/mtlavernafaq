@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Quote } from "lucide-react";
+import founderPhoto from "@/assets/founder.png";
 
 export const Route = createFileRoute("/founder")({
   head: () => ({
@@ -44,17 +45,11 @@ function FounderPage() {
 
       <div className="mt-12 grid lg:grid-cols-[1fr_2fr] gap-10">
         <div className="space-y-5">
-          <div
-            className="aspect-[3/4] rounded-3xl border border-border grid place-items-center text-primary-foreground"
-            style={{ background: "var(--gradient-hero)" }}
-          >
-            <div className="text-center px-6">
-              <p className="text-7xl" style={{ fontFamily: "var(--font-display)", color: "var(--gold)" }}>
-                MK
-              </p>
-              <p className="mt-3 text-sm uppercase tracking-[0.25em]">In loving memory</p>
-            </div>
-          </div>
+          <img
+            src={founderPhoto}
+            alt="Mother Mary Kelvin, foundress of Mount Laverna School"
+            className="aspect-[3/4] w-full object-cover rounded-3xl border border-border"
+          />
           <div className="p-5 rounded-xl bg-card border border-border">
             <p className="text-xs uppercase tracking-widest text-muted-foreground">Order</p>
             <p className="mt-1">Franciscan Sisters of St. Clare</p>
